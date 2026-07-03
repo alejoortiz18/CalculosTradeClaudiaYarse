@@ -1,0 +1,27 @@
+﻿@model List<CalculoResultadoDto>
+
+<h3>Resultados de Carga</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Origen</th>
+            <th>Tipo Dcto</th>
+            <th>Nro Dcto</th>
+            <th>Estado</th>
+            <th>Mensaje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="@(item.Exitoso ? "table-success" : "table-danger")">
+                <td>@item.POrigen</td>
+                <td>@item.PTipoDcto</td>
+                <td>@item.PNroDcto</td>
+                <td>@(item.Exitoso ? "OK" : "ERROR")</td>
+                <td>@item.Mensaje</td>
+            </tr>
+        }
+    </tbody>
+</table>
